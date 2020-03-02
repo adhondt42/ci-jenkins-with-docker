@@ -8,7 +8,7 @@ Build an nginx container in front of your jenkins server to enable SSL with Let'
 	- fullchain1.pem
 	- privkey1.pem
 
-Move certs to `certs` folder.
+Move your certs to `certs` folder.
 
 ## Setup your host
 
@@ -18,6 +18,7 @@ Move certs to `certs` folder.
 $ export PROJECT_NAME="dummy"
 # the DNS that match with the SSL certificates
 $ export PROJECT_DNS="dummy.com"
-$ docker build -t nginx_jenkins .
-$ docker run nginx_jenkins
+$ docker-compose up -d
 ```
+
+No volume mounted from `certs`directory so you can safely delete it locally.
