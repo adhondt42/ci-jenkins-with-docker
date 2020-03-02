@@ -1,7 +1,7 @@
 # ci-jenkins-with-docker
 
 A Jenkins base image with docker-in-docker enabled and docker-compose, go and nodejs embedded.  
-`nginx` repository provide simple nginx configuration to enable SSL in front of your Jenkins server.  
+`nginx` directory provide simple nginx container in to enable SSL in front of your Jenkins server.  
 
 **NOTE:**  You can edit the `docker-compose.yml` file to install docker-compose, go and nodejs version that fit to your needs.
 
