@@ -1,0 +1,25 @@
+
+version: '3.7'
+
+networks:
+  jenkins_network:
+    external:
+      name: ${PROJECT_NAME}_jenkins_network
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx_jenkins
+    hostname: nginx_jenkins
+    environment:
+      - PROJECT_DNS=${PROJECT_DNS}
+      - PROJECT_NAME=${PROJECT_NAME}
+    command: bash -c "envsubst < /etc/nginx/conf.d/nginx_template_conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./certs:/etc/ssl
+      - ./conf:/etc/nginx/conf.d
+    networks:
+      - jenkins_network
