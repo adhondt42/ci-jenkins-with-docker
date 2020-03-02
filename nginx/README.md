@@ -14,6 +14,8 @@ Move your certs to `certs` folder.
 
 
 ```bash
+# ensure fullchain1.pem and privkey1.pem files are present
+$ ls certs/
 # needs to be the same as the one already used
 $ export PROJECT_NAME="dummy"
 # the DNS that match with the SSL certificates
